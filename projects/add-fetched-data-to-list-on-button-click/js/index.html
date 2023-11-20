@@ -1,43 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cupcake">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Pokemon</title>
+    <title>Random Pokemon - JS</title>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.4.2/dist/full.min.css"
       rel="stylesheet"
       type="text/css"
     />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./script.js" defer></script>
-    <style>
-      #add-pokemon-button:not([disabled]) > .loading-spinner {
-        display: none;
-      }
-
-      #add-pokemon-button[disabled] > .chevron {
-        display: none;
-      }
-    </style>
   </head>
   <body
-    class="p-4 min-h-screen bg-gradient-to-tr from-slate-900 via-slate-700 via-80% to-indigo-700"
+    class="p-4 min-h-screen bg-gradient-to-tr from-slate-900 via-slate-700 via-80% to-[#387c80]"
   >
     <div>
       <button
         id="add-pokemon-button"
-        onclick="fetchRandomPokemonAndAddToList(event)"
+        onclick="handleAddPokemonEvent()"
         class="rounded-md btn btn-primary"
       >
         <span>Add pokemon</span>
         <span class="loading loading-spinner"></span>
-        <span class="chevron">
+        <span class="chevron min-w-[24px] flex justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="20"
+            height="20"
             fill="currentColor"
             class="bi bi-chevron-right"
             viewBox="0 0 16 16"
@@ -51,7 +40,7 @@
       </button>
     </div>
     <div class="my-4">
-      <ul id="pokemon-list" class="w-56 min-w-full rounded-md menu bg-base-200">
+      <ul id="pokemon-list" class="w-56 min-w-full rounded-md menu bg-primary">
         <li class="menu">Pokemon</li>
       </ul>
     </div>

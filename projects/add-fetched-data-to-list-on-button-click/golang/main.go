@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	chi "github.com/go-chi/chi/v5"
 	chiMiddleware "github.com/go-chi/chi/v5/middleware"
@@ -15,6 +16,15 @@ var middleware2 = cors.Handler(cors.Options{
 	AllowedOrigins: []string{"https://*", "http://*"},
 })
 
+func getFileContentsAsString(filePath string) (string, error) {
+	bytes, err := os.ReadFile(filePath)
+	if err != nil {
+		return "", err
+	}
+	str := string(bytes)
+	return str, nil
+}
+
 func main() {
 	fmt.Println(`Server started`)
 	r := chi.NewRouter()
@@ -22,7 +32,33 @@ func main() {
 	r.Use(middleware2)
 
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(`hello world`))
+		indexString, err := getFileContentsAsString(`./templates/index.html`)
+		if err != nil {
+			panic(err)
+		}
+
+		w.Write([]byte(indexString))
+	})
+	r.Get("/script.js", func(w http.ResponseWriter, r *http.Request) {
+		scriptString, err := getFileContentsAsString(`./templates/script.js`)
+		if err != nil {
+			panic(err)
+		}
+
+		w.Write([]byte(scriptString))
+	})
+	r.Get("/style.css", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Content-Type", "text/css")
+		styleString, err := getFileContentsAsString(`./templates/style.css`)
+		if err != nil {
+			panic(err)
+		}
+
+		w.Write([]byte(styleString))
+		// 		w.Write([]byte(`div {
+		//   border: 5px solid red;
+		// }`))
+
 	})
 
 	log.Fatal(http.ListenAndServe("localhost:3000", r))
