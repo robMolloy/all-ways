@@ -1,0 +1,7 @@
+#add-pokemon-button:not([disabled])>.loading-spinner {
+  display: none;
+}
+
+#add-pokemon-button[disabled]>.chevron {
+  display: none;
+}
