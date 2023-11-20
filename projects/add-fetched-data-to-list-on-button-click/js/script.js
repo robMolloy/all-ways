@@ -46,4 +46,4 @@ const handleAddPokemonEvent = async () => {
   setLoadingState(false);
 };
 
-// handleAddPokemonEvent();
+handleAddPokemonEvent();

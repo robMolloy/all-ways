@@ -16,6 +16,8 @@ var middleware2 = cors.Handler(cors.Options{
 	AllowedOrigins: []string{"https://*", "http://*"},
 })
 
+const url = "localhost:3000"
+
 func getFileContentsAsString(filePath string) (string, error) {
 	bytes, err := os.ReadFile(filePath)
 	if err != nil {
@@ -26,7 +28,7 @@ func getFileContentsAsString(filePath string) (string, error) {
 }
 
 func main() {
-	fmt.Println(`Server started`)
+	fmt.Println(`Server started on: http://` + url)
 	r := chi.NewRouter()
 	r.Use(middleware1)
 	r.Use(middleware2)
@@ -55,11 +57,16 @@ func main() {
 		}
 
 		w.Write([]byte(styleString))
-		// 		w.Write([]byte(`div {
-		//   border: 5px solid red;
-		// }`))
+	})
+	r.Get("/assets/favicon.svg", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Content-Type", "image/svg+xml")
+		styleString, err := getFileContentsAsString(`./assets/favicon.svg`)
+		if err != nil {
+			panic(err)
+		}
 
+		w.Write([]byte(styleString))
 	})
 
-	log.Fatal(http.ListenAndServe("localhost:3000", r))
+	log.Fatal(http.ListenAndServe(url, r))
 }
