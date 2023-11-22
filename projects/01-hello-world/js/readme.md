@@ -141,3 +141,7 @@ helloNameElement.innerHTML = getRandomName();
 ```
 
 ## Compare network tab with slow 3g throttle
+
+## summary
+
+For most people this a refresher, a simple video to explain how
