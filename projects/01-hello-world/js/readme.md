@@ -144,4 +144,4 @@ helloNameElement.innerHTML = getRandomName();
 
 ## summary
 
-For most people this a refresher, a simple video to explain how
+For most people this a refresher, a simple video to explain the basics the we will be using as we move forward through this course
