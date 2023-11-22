@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <title>Random Pokemon - Go</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.svg" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.4.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body
+    class="p-4 min-h-screen bg-gradient-to-tr from-slate-900 via-slate-700 via-80% to-[#387c80]"
+  >
+    <div>
+      <button
+        id="add-pokemon-button"
+        onclick="handleAddPokemonEvent()"
+        class="rounded-md btn btn-primary"
+      >
+        <span>Add pokemon</span>
+        <span class="loading loading-spinner"></span>
+        <span class="chevron min-w-[24px] flex justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-chevron-right"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div class="my-4">
+      <ul id="pokemon-list" class="w-56 min-w-full rounded-md menu bg-primary">
+        <li class="menu">Pokemon</li>
+      </ul>
+    </div>
+  </body>
+</html>
