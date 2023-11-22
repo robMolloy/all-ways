@@ -7,3 +7,9 @@ Whether it's solving a problem from the front-end perspective (client-side rende
 Most people just find a technology that they are comfortable with and that becomes the hammer for all nails. So, let's see if we can work out which technologies are best in which scenarios without forgetting that the best code is the one that YOU can get the project done in best
 
 This is web dev so all projects use html, therefore when naming the technologies we will omit HTML
+
+## projects
+
+- 01: hello world
+- 02: hello world styled lilst
+- 03: add fetched data to list on button click
