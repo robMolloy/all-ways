@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello world</title>
+  </head>
+  <body>
+    <div>
+      <span>Hello</span>
+      <span id="hello-name"></span>
+    </div>
+
+    <script>
+      const getRandomInt = (min, max) => {
+        const difference = max - min;
+        return Math.floor(Math.random() * (difference + 1)) + min;
+      };
+
+      const getRandomName = () => {
+        const names = ["alan", "barbara", "chris", "diane", "engelbert"];
+        return names[getRandomInt(0, names.length - 1)];
+      };
+
+      const helloNameElement = document.getElementById("hello-name");
+      helloNameElement.innerHTML = getRandomName();
+    </script>
+  </body>
+</html>
